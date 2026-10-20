@@ -1,4 +1,5 @@
 {
+  VERCEL_SUPPORT_LARGE_FUNCTIONS=1
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/**/*.py": {
