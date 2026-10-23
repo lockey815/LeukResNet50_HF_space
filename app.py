@@ -20,7 +20,7 @@ model_path = hf_hub_download(
     filename="resnet50_final.keras"
 )
 
-model = keras.saving.load_model(model_path)
+model = keras.saving.load_model("hf://Lockey815/LeukNet-ResNet50")
 
 def get_target_size(model):
     try:
