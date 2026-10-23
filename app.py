@@ -11,11 +11,16 @@ from huggingface_hub import hf_hub_download
 MODEL_ID = "Lockey815/LeukNet-ResNet50"
 MODEL_FILENAME = "resnet50_final.keras"
 
-def load_model():
-    path = hf_hub_download(repo_id=MODEL_ID, filename=MODEL_FILENAME)
-    return keras.saving.load_model(path, compile=False)
 
-model = keras.saving.load_model("hf://Lockey815/LeukNet-ResNet50")
+from huggingface_hub import hf_hub_download
+import keras
+
+model_path = hf_hub_download(
+    repo_id="Lockey815/LeukNet-ResNet50",
+    filename="resnet50_final.keras"
+)
+
+model = keras.saving.load_model(model_path)
 
 def get_target_size(model):
     try:
