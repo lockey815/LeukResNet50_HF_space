@@ -11,7 +11,7 @@ WORKDIR /app
 RUN useradd --create-home --uid 1000 appuser
 
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --timeout 120 --retries 10 -r requirements.txt
 
 COPY app.py .
 
