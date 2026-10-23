@@ -1,14 +1,3 @@
-from fastapi import FastAPI
- 
-app = FastAPI()
- 
-@app.get("/")
-def home():
-    return {"message": "Hello from Python on Vercel"}
- 
-@app.get("/api/items/{item_id}")
-def read_item(item_id: int):
-    return {"item_id": item_id}
 import os
 os.environ.setdefault("KERAS_BACKEND", "tensorflow")
 os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
@@ -135,4 +124,4 @@ with gr.Blocks(theme=gr.themes.Soft(), title="LeukNet-ResNet50 Demo") as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)))
